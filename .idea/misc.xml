@@ -41,6 +41,9 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="1.7" project-jdk-type="JavaSDK" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\XiaoQiong\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="masterDetails">
     <states>
       <state key="GlobalLibrariesConfigurable.UI">
