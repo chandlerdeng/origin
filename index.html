@@ -2,12 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, target-densitydpi=medium-dpi, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="format-detection" content="adress=no">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>webchat-vue-1.0</title>
+    <link href="static/libs/mui/css/mui.min.css" rel="stylesheet">
   </head>
   <body>
     <!-- 路由外链 -->
     <router-view v-bind:transition="transition" v-bind:back-fn="back"
                  v-bind:forward-fn="forward" v-bind:jump-fn="jump"></router-view>
     <!-- built files will be auto injected -->
+    <script src="static/libs/mui/js/mui.min.js"></script>
   </body>
 </html>

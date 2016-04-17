@@ -1,35 +1,83 @@
 <template>
   <div>
-    <img class="logo" src="./assets/logo.png">
-    <hello></hello>
-    <p>
-      Welcome to y你好our Vue.js app!
-    </p>
-    <p>
-      To get a better understanding of how this boilerplate works, check out
-      <a href="http://vuejs-templates.github.io/webpack" target="_blank">its documentation</a>.
-      It is also recommended to go through the docs for
-      <a href="http://webpack.github.io/" target="_blank">Webpack</a> and
-      <a href="http://vuejs.github.io/vue-loader/" target="_blank">vue-loader</a>.
-      If you have any issues with the setup, please file an issue at this boilerplate's
-      <a href="https://github.com/vuejs-templates/webpack" target="_blank">repository</a>.
-    </p>
-    <p>
-      <a v-link="'/Page1'">go to page1</a>
-    </p>
+    <header class="mui-bar mui-bar-nav">
+
+      <span class="mui-title fs16">无忧家电</span>
+      <button class="mui-action-back mui-btn mui-btn-blue mui-btn-link
+      mui-btn-nav mui-pull-left fs13 pl32 "> 深圳
+      </button>
+      <!--<a class="mui-icon mui-icon-bars mui-pull-right"></a>-->
+    </header>
+    <div id="slider" class="mui-slider">
+      <div class="mui-slider-group mui-slider-loop">
+        <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+        <div class="mui-slider-item mui-slider-item-duplicate">
+          <a href="#">
+            <img src="assets/imgs/banner/banner_3.jpg">
+          </a>
+        </div>
+        <!-- 第一张 -->
+        <div class="mui-slider-item">
+          <a href="#">
+            <img src="assets/imgs/banner/banner_1.jpg">
+          </a>
+        </div>
+        <!-- 第二张 -->
+        <div class="mui-slider-item">
+          <a href="#">
+            <img src="assets/imgs/banner/banner_3.jpg">
+          </a>
+        </div>
+        <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+        <div class="mui-slider-item mui-slider-item-duplicate">
+          <a href="#">
+            <img src="assets/imgs/banner/banner_1.jpg">
+          </a>
+        </div>
+      </div>
+      <div class="mui-slider-indicator">
+        <div class="mui-indicator mui-active"></div>
+        <div class="mui-indicator"></div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+  export default {
+    methods: {
+      initSlider: function () {
+        window.mui('#slider').slider({
+          interval: 400
+        })
+      }
+    },
+    ready: function () {
+      console.log('hook-example activated!')
 
-export default {
-  components: {
-    Hello
+      this.initSlider(null)
+    },
+    components: {
+    }
   }
-}
 </script>
 
-<style>
-  @import "assets/common.scss";
+
+<style lang="sass">
+  @import "assets/css/common.scss";
+
+  $nav-height : 3.615rem;
+  .mui-bar-nav{height: $nav-height;background: white;-webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;border-bottom: 1px solid $blue;}
+  .mui-bar .mui-btn-link, .mui-title{line-height: $nav-height;}
+  .mui-title{ color: $blue;}
+  .mui-bar .mui-btn-link{color: $gray;}
+</style>
+
+
+<style scoped>
+  .mui-bar .mui-btn-link{
+    background: url(assets/imgs/icon-map.png) left center no-repeat;
+    -webkit-background-size: auto 60%; background-size: auto 60%;
+  }
+
 </style>

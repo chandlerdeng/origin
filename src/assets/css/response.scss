@@ -1,0 +1,23 @@
+@import "core/define";
+
+@media all and (max-width:640px) {
+    html {
+        font-size: $baseFontSize + 2;
+    }
+}@media all and (max-width:480px) {
+    html {
+        font-size: $baseFontSize + 2;
+    }
+}@media all and (max-width:360px) {
+    html {
+        font-size: $baseFontSize;
+    }
+}@media all and (max-width:320px) {
+    html {
+        font-size: $baseFontSize;
+    }
+}@media all and (max-width:240px) {
+    html {
+        font-size: $baseFontSize - 1;
+    }
+}

@@ -1,0 +1,315 @@
+@import "core/define";
+@import "core/css3";
+@import "core/mixin";
+@import "response";
+
+/*
+全局防止越界
+================================*/
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;//长时间按住页面出现闪退
+}
+
+/*
+通用全局
+================================*/
+html,body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: $black;
+}
+
+html{
+    background-color: $grayLight;
+}
+
+button, html, input, select, textarea {
+    font-family: "Helvetica Neue",Helvetica,STHeiTi,Arial,sans-serif;
+}
+
+a{
+    cursor: pointer;
+    color: $black;
+}
+
+input{
+    -webkit-appearance: none;//iphone及ipad下输入框默认内阴影
+}
+
+/*
+尺寸
+================================*/
+
+.fs5{font-size: $size-5 !important;}
+.fs8{font-size: $size-8 !important;}
+.fs10{font-size: $size-10 !important;}
+.fs11{font-size: $size-11 !important;}
+.fs12{font-size: $size-12 !important;}
+.fs13{font-size: $size-13 !important;}
+.fs14{font-size: $size-14 !important;}
+.fs15{font-size: $size-15 !important;}
+.fs16{font-size: $size-16 !important;}
+.fs18{font-size: $size-18 !important;}
+.fs20{font-size: $size-20 !important;}
+.fs24{font-size: $size-24 !important;}
+.fs32{font-size: $size-32 !important;}
+.fs36{font-size: $size-36 !important;}
+.fw1{font-weight: 100 !important;}
+.fw2{font-weight: 200 !important;}
+.fw3{font-weight: 300 !important;}
+.fw4{font-weight: 400 !important;}
+.fw5{font-weight: 500 !important;}
+.fw6{font-weight: 600 !important;}
+.fw7{font-weight: 700 !important;}
+.fw8{font-weight: 800 !important;}
+/*
+颜色
+================================*/
+.color-primary{
+    color: $primary;
+}
+
+.color-success{
+    color: $green;
+}
+
+.color-cancel{
+    color: $red;
+}
+
+.color-gray{
+    color: $gray5;
+}
+
+.color-green-2{
+    color: $green2;
+}
+
+.color-gray-2{
+    color: $gray3;
+}
+
+.fl{float: left !important;}
+.fr{float: right !important;}
+.clear{clear: both !important;}
+/*
+边距
+================================*/
+.margin-right-5{
+    margin-right: 5px;
+}
+
+.mt0{margin-top: 0 !important;}
+.mt5{margin-top: $size-5 !important;}
+.mt8{margin-top: $size-8 !important;}
+.mt10{margin-top: $size-10 !important;}
+.mt11{margin-top: $size-11 !important;}
+.mt12{margin-top: $size-12 !important;}
+.mt13{margin-top: $size-13 !important;}
+.mt14{margin-top: $size-14 !important;}
+.mt15{margin-top: $size-15 !important;}
+.mt16{margin-top: $size-16 !important;}
+.mt18{margin-top: $size-18 !important;}
+.mt20{margin-top: $size-20 !important;}
+.mt24{margin-top: $size-24 !important;}
+.mt32{margin-top: $size-32 !important;}
+.mt36{margin-top: $size-36 !important;}
+
+.mb5{margin-bottom: $size-5 !important;}
+.mb8{margin-bottom: $size-8 !important;}
+.mb10{margin-bottom: $size-10 !important;}
+.mb11{margin-bottom: $size-11 !important;}
+.mb12{margin-bottom: $size-12 !important;}
+.mb13{margin-bottom: $size-13 !important;}
+.mb14{margin-bottom: $size-14 !important;}
+.mb15{margin-bottom: $size-15 !important;}
+.mb16{margin-bottom: $size-16 !important;}
+.mb18{margin-bottom: $size-18 !important;}
+.mb20{margin-bottom: $size-20 !important;}
+.mb24{margin-bottom: $size-24 !important;}
+.mb32{margin-bottom: $size-32 !important;}
+.mb36{margin-bottom: $size-36 !important;}
+
+.ml5{margin-left: $size-5 !important;}
+.ml8{margin-left: $size-8 !important;}
+.ml10{margin-left: $size-10 !important;}
+.ml11{margin-left: $size-11 !important;}
+.ml12{margin-left: $size-12 !important;}
+.ml13{margin-left: $size-13 !important;}
+.ml14{margin-left: $size-14 !important;}
+.ml15{margin-left: $size-15 !important;}
+.ml16{margin-left: $size-16 !important;}
+.ml18{margin-left: $size-18 !important;}
+.ml20{margin-left: $size-20 !important;}
+.ml24{margin-left: $size-24 !important;}
+.ml32{margin-left: $size-32 !important;}
+.ml36{margin-left: $size-36 !important;}
+
+.mr5{margin-right: $size-5 !important;}
+.mr8{margin-right: $size-8 !important;}
+.mr10{margin-right: $size-10 !important;}
+.mr11{margin-right: $size-11 !important;}
+.mr12{margin-right: $size-12 !important;}
+.mr13{margin-right: $size-13 !important;}
+.mr14{margin-right: $size-14 !important;}
+.mr15{margin-right: $size-15 !important;}
+.mr16{margin-right: $size-16 !important;}
+.mr18{margin-right: $size-18 !important;}
+.mr20{margin-right: $size-20 !important;}
+.mr24{margin-right: $size-24 !important;}
+.mr32{margin-right: $size-32 !important;}
+.mr36{margin-right: $size-36 !important;}
+
+.pt5{padding-top: $size-5 !important;}
+.pt8{padding-top: $size-8 !important;}
+.pt10{padding-top: $size-10 !important;}
+.pt11{padding-top: $size-11 !important;}
+.pt12{padding-top: $size-12 !important;}
+.pt13{padding-top: $size-13 !important;}
+.pt14{padding-top: $size-14 !important;}
+.pt15{padding-top: $size-15 !important;}
+.pt16{padding-top: $size-16 !important;}
+.pt18{padding-top: $size-18 !important;}
+.pt20{padding-top: $size-20 !important;}
+.pt24{padding-top: $size-24 !important;}
+.pt32{padding-top: $size-32 !important;}
+.pt36{padding-top: $size-36 !important;}
+
+.pb5{padding-bottom: $size-5 !important;}
+.pb8{padding-bottom: $size-8 !important;}
+.pb10{padding-bottom: $size-10 !important;}
+.pb11{padding-bottom: $size-11 !important;}
+.pb12{padding-bottom: $size-12 !important;}
+.pb13{padding-bottom: $size-13 !important;}
+.pb14{padding-bottom: $size-14 !important;}
+.pb15{padding-bottom: $size-15 !important;}
+.pb16{padding-bottom: $size-16 !important;}
+.pb18{padding-bottom: $size-18 !important;}
+.pb20{padding-bottom: $size-20 !important;}
+.pb24{padding-bottom: $size-24 !important;}
+.pb32{padding-bottom: $size-32 !important;}
+.pb36{padding-bottom: $size-36 !important;}
+
+.pl5{padding-left: $size-5 !important;}
+.pl8{padding-left: $size-8 !important;}
+.pl10{padding-left: $size-10 !important;}
+.pl11{padding-left: $size-11 !important;}
+.pl12{padding-left: $size-12 !important;}
+.pl13{padding-left: $size-13 !important;}
+.pl14{padding-left: $size-14 !important;}
+.pl15{padding-left: $size-15 !important;}
+.pl16{padding-left: $size-16 !important;}
+.pl18{padding-left: $size-18 !important;}
+.pl20{padding-left: $size-20 !important;}
+.pl24{padding-left: $size-24 !important;}
+.pl32{padding-left: $size-32 !important;}
+.pl36{padding-left: $size-36 !important;}
+
+.pr5{padding-right: $size-5 !important;}
+.pr8{padding-right: $size-8 !important;}
+.pr10{padding-right: $size-10 !important;}
+.pr11{padding-right: $size-11 !important;}
+.pr12{padding-right: $size-12 !important;}
+.pr13{padding-right: $size-13 !important;}
+.pr14{padding-right: $size-14 !important;}
+.pr15{padding-right: $size-15 !important;}
+.pr16{padding-right: $size-16 !important;}
+.pr18{padding-right: $size-18 !important;}
+.pr20{padding-right: $size-20 !important;}
+.pr24{padding-right: $size-24 !important;}
+.pr32{padding-right: $size-32 !important;}
+.pr36{padding-right: $size-36 !important;}
+
+
+/*
+清除浮动
+================================*/
+.gd-clearfix{
+    @include clearfix();
+}
+
+.gd-left{
+    @include float();
+}
+
+.gd-right{
+    @include float(right);
+}
+
+/*
+UL横向显示
+================================*/
+.gd-list-inline{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.gd-list-inline > li {
+    @include inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+
+    &:last-child{
+        padding-right: 0;
+    }
+}
+
+/*
+多栏布局
+================================*/
+.gd-row{
+    width: 100%;
+    @include clearfix();
+}
+
+.gd-col-3,
+.gd-col-4,
+.gd-col-6{
+    @include float();
+}
+
+.gd-col-3{
+    width: 25%;
+}
+
+.gd-col-4{
+    width: 33.33%;
+}
+
+.gd-col-6{
+    width: 50%;
+}
+
+/*
+业务全局
+================================*/
+$window-min-w : 1080px;
+.gd-container{
+    width: $window-min-w;
+    margin: 0 auto;
+}
+
+.gd-hide{
+    display: none;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.no-border-b:after {
+    border-bottom: none;
+}
+
+.slide-right-transition,
+.slide-left-transition{transition: all 0.5s ease;width: 100%;overflow: hidden;white-space: nowrap;position:relative}
+.slide-right-transition{float: right; right:0;}
+.slide-left-transition{float: left; left:0;}
+.slide-right-leave{right:0; width:0;}.slide-right-enter{right:100%; width: 0}
+.slide-left-leave{left:-100%;width: 0}.slide-left-enter{left:0;width:0}
