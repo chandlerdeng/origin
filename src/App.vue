@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <img class="logo" src="./assets/logo.png">
     <hello></hello>
     <p>
@@ -15,9 +15,7 @@
       <a href="https://github.com/vuejs-templates/webpack" target="_blank">repository</a>.
     </p>
     <p>
-      You may also want to checkout
-      <a href="https://github.com/vuejs/vue-router/" target="_blank">vue-router</a> for routing and
-      <a href="https://github.com/vuejs/vuex/" target="_blank">vuex</a> for state management.
+      <a v-link="'/Page1'">go to page1</a>
     </p>
   </div>
 </template>
@@ -33,32 +31,5 @@ export default {
 </script>
 
 <style>
-html {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-#app {
-  color: #2c3e50;
-  margin-top: -100px;
-  max-width: 600px;
-  font-family: Source Sans Pro, Helvetica, sans-serif;
-  text-align: center;
-}
-
-#app a {
-  color: #42b983;
-  text-decoration: none;
-}
-
-.logo {
-  width: 100px;
-  height: 100px
-}
+  @import "assets/common.scss";
 </style>

@@ -5,7 +5,9 @@
     <title>webchat-vue-1.0</title>
   </head>
   <body>
-    <app></app>
+    <!-- 路由外链 -->
+    <router-view v-bind:transition="transition" v-bind:back-fn="back"
+                 v-bind:forward-fn="forward" v-bind:jump-fn="jump"></router-view>
     <!-- built files will be auto injected -->
   </body>
 </html>
