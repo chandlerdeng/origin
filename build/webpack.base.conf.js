@@ -1,6 +1,6 @@
 var path = require('path')
 var config = require('../config')
-var utils = require('./utils')
+var cssLoaders = require('./css-loaders')
 var projectRoot = path.resolve(__dirname, '../')
 
 module.exports = {
@@ -63,15 +63,15 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 10000,
-          name: utils.assetsPath('[name].[hash:7].[ext]')
+          name: path.join(config.build.assetsSubDirectory, '[name].[hash:7].[ext]')
         }
       }
     ]
   },
+  vue: {
+    loaders: cssLoaders()
+  },
   eslint: {
     formatter: require('eslint-friendly-formatter')
-  },
-  vue: {
-    loaders: utils.cssLoaders()
   }
 }
