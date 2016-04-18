@@ -308,7 +308,7 @@ $window-min-w : 1080px;
 }
 
 .slide-right-transition,
-.slide-left-transition{transition: all 0.5s ease;width: 100%;overflow: hidden;white-space: nowrap;position:relative}
+.slide-left-transition{transition: all 10.5s ease;width: 100%;overflow: hidden;white-space: nowrap;position:relative}
 .slide-right-transition{float: right; right:0;}
 .slide-left-transition{float: left; left:0;}
 .slide-right-leave{right:0; width:0;}.slide-right-enter{right:100%; width: 0}

@@ -2,6 +2,14 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App'
 
+Vue.transition('slide-left', {
+  beforeEnter: function (el) {
+    el.__vue__.$withTrans = true
+  },
+  afterEnter: function (el) {
+    el.__vue__.$emit('transition-over')
+  }
+})
 Vue.use(VueRouter)
 
 var myApp = Vue.extend({
