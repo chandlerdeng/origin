@@ -97,14 +97,14 @@
 <style lang="scss">
   @import "assets/css/common.scss";
 
-  $nav-height : 3.615rem;
+  $nav-height : 4.7rem;
   .mui-bar-nav{position: relative; height: $nav-height;background: white;-webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;border-bottom: 1px solid $blue;}
   .mui-bar .mui-btn-link, .mui-title{line-height: $nav-height;}
   .mui-title{ color: $blue;}
   .mui-bar .mui-btn-link{color: $gray;}
   .mui-media-body{.title{color: black; line-height: 150%}}
   .mui-navigate-right{ &:after{font-size: $size-24; color: $gray2}}
-  $height : 3.77rem;
+  $height : 4.465rem;
   .mui-table-view .mui-media-object{height: 0.8*$height; width: 0.8*$height; max-width: 0.8*$height; margin-top:0.1*$height}
 </style>
 

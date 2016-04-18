@@ -14,6 +14,7 @@
     <link href="static/libs/mui/css/mui.min.css" rel="stylesheet">
   </head>
   <body>
+  <style> html{font-size: {{size}}px;} </style>
     <!-- 路由外链 -->
     <router-view v-bind:transition="transition" v-bind:back-fn="back"
                  v-bind:forward-fn="forward" v-bind:jump-fn="jump"></router-view>

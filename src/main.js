@@ -2,20 +2,38 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App'
 
-Vue.transition('slide-left', {
+let dzzTrans = {
   beforeEnter: function (el) {
     el.__vue__.$withTrans = true
   },
   afterEnter: function (el) {
     el.__vue__.$emit('transition-over')
   }
-})
+}
+Vue.transition('slide-left', dzzTrans)
+Vue.transition('slide-right', dzzTrans)
 Vue.use(VueRouter)
 
 var myApp = Vue.extend({
-  el () { return 'body' },
+  el () { return 'html' },
   data () {
-    return { transition: 'slide-left' }
+    return {
+      transition: 'slide-left',
+      size: 13 * (document.body.clientWidth / 320)
+    }
+  },
+  created: function () {
+    var _self = this
+    console.log('myApp created')
+    let resize = function () {
+      console.log(document.body.clientWidth)
+      _self.size = 13 * (document.body.clientWidth / 320)
+    }
+    if (window.attachEvent) {
+      window.attachEvent('resize', resize)
+    } else if (window.addEventListener) {
+      window.addEventListener('resize', resize, false)
+    }
   }
 })
 var myRouter = new VueRouter()
