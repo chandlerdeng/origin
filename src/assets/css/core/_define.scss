@@ -10,21 +10,6 @@ $lte7:                  true !default; //是否兼容ie6-7
 $filter:                false !default; //是否为ie6-8开启css3滤镜兼容，常用于渐变背景 
 $printStyleSwitch:      false !default; //是否开启打印样式
 
-
-$size-5 : .385rem;
-$size-8 : .615rem;
-$size-10 : .769rem;
-$size-11 : .846rem;
-$size-12 : .923rem;
-$size-13 : 1rem;
-$size-14 : 1.077rem;
-$size-15 : 1.154rem;
-$size-16 : 1.23rem;
-$size-18 : 1.385rem;
-$size-20 : 1.53846rem;
-$size-24 : 1.846rem;
-$size-32 : 2.4615rem;
-$size-36 : 2.76923rem;
 // font相关
 //-----------------------------------------------------	
 $baseFontSize:          13px !default;

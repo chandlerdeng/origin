@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App'
+import Util from './assets/js/Util'
 
 let dzzTrans = {
   beforeEnter: function (el) {
@@ -19,21 +20,18 @@ var myApp = Vue.extend({
   data () {
     return {
       transition: 'slide-left',
-      size: 13 * (document.body.clientWidth / 320)
+      size: Util.getHtmlFontSize(),
+      width: Util.getBodyWidth()
     }
   },
   created: function () {
     var _self = this
     console.log('myApp created')
-    let resize = function () {
+    Util.addResizeEvent(function () {
       console.log(document.body.clientWidth)
-      _self.size = 13 * (document.body.clientWidth / 320)
-    }
-    if (window.attachEvent) {
-      window.attachEvent('resize', resize)
-    } else if (window.addEventListener) {
-      window.addEventListener('resize', resize, false)
-    }
+      _self.size = Util.getHtmlFontSize()
+      _self.width = Util.getBodyWidth()
+    })
   }
 })
 var myRouter = new VueRouter()
