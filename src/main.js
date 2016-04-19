@@ -19,7 +19,7 @@ var myApp = Vue.extend({
   el () { return 'html' },
   data () {
     return {
-      transition: 'slide-left',
+      transition: 'slide-right',
       size: Util.getHtmlFontSize(),
       width: Util.getBodyWidth()
     }
@@ -32,30 +32,88 @@ var myApp = Vue.extend({
       _self.size = Util.getHtmlFontSize()
       _self.width = Util.getBodyWidth()
     })
+  },
+  route: {
+    activate: function (transition) {
+      console.log('myApp route activated!')
+      transition.next()
+    },
+    deactivate: function (transition) {
+      console.log('myApp route deactivated!')
+      transition.next()
+    },
+    data: function (transition) {
+      console.log('myApp route data!')
+      transition.next()
+    },
+    canReuse: function (transition) {
+      console.log('myApp route canReuse!')
+      transition.next()
+    },
+    canDeactivate: function (transition) {
+      console.log('myApp route canDeactivate!')
+      transition.next()
+    },
+    canActivate: function (transition) {
+      console.log('myApp route canActivate!')
+      transition.next()
+    }
   }
 })
 var myRouter = new VueRouter()
 
+ /* 嵌套路由 */
 myRouter.map({'/': {
   name: 'home',
-  component: App
+  component: App,
+  subRoutes: {
+    '/': {
+      component: function (resolve) {
+        resolve(require('components/Home.vue'))
+      }
+    },
+    '/myaccount': {
+      component: function (resolve) {
+        resolve(require('components/account/MyAccount.vue'))
+      }
+    }
+  }
 }})
 
-myRouter.map({'/Page1': {
-  name: 'page1',
+myRouter.map({'/wash': {
+  name: 'wash',
   component: function (resolve) {
     resolve(require('components/Page1.vue'))
   }
 }})
 
 myRouter.beforeEach(function (trans) {
+  console.log('myRouter.beforeEach')
+  var isSlideChg = false
   // 拦截地址, 如果是返回, 则改变动画方向
-  if (trans.to.query.back && Boolean(trans.to.query.back) === true) {
-    myRouter.app.transition = 'slide-right'
+
+  if (trans.to.query && trans.to.query.slideleft && Boolean(trans.to.query.slideleft) === true) {
+    if (myRouter.app.transition !== 'slide-left') {
+      myRouter.app.transition = 'slide-left'
+      isSlideChg = true
+    }
   } else {
-    myRouter.app.transition = 'slide-left'
+    if (myRouter.app.transition !== 'slide-right') {
+      myRouter.app.transition = 'slide-right'
+      isSlideChg = true
+    }
   }
-  trans.next()
+
+  if (isSlideChg) {
+    // 必须延时, 否则transition方向未转换结束就开始动画, 就出问题
+    myRouter.app.$nextTick(function () {
+      setTimeout(function () {
+        trans.next()
+      }, 100)
+    })
+  } else {
+    trans.next()
+  }
 })
 
 myRouter.start(myApp, 'body')
