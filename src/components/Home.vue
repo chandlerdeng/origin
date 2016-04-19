@@ -97,15 +97,15 @@
       }
     },
     ready: function () {
-
+      console.log('Home.vue ready!')
+      if (!this.$withTrans) {
+        this.initSlider()
+      }
     },
     route: {
       activate: function (transition) {
         console.log('activated!')
         transition.next()
-        if (!this.$withTrans) {
-          this.initSlider()
-        }
       },
       deactivate: function (transition) {
         console.log('destroy Slider')

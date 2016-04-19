@@ -76,6 +76,11 @@ myRouter.map({'/': {
       component: function (resolve) {
         resolve(require('components/account/MyAccount.vue'))
       }
+    },
+    '/myorders': {
+      component: function (resolve) {
+        resolve(require('components/account/MyOrderList.vue'))
+      }
     }
   }
 }})

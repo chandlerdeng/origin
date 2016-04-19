@@ -1,11 +1,11 @@
 <template>
 	<footer id="dzz-footer" class="mui-bar mui-bar-tab" >
-		<a class="dzz-tab-item mui-active" href="#tabbar">
+		<div class="dzz-tab-item mui-active"  v-on:click="Goto('/', $event)">
 			<div class="mui-icon dzz-icon-home"></div>
-		</a>
-		<a class="dzz-tab-item" href="#tabbar">
+		</div>
+		<div class="dzz-tab-item"  v-on:click="Goto('/myorders', $event)">
 			<div class="mui-icon dzz-icon-order"></div>
-		</a>
+		</div>
 		<div class="dzz-tab-item" v-on:click="Goto('/myaccount', $event)">
 			<div class="mui-icon dzz-icon-me" ></div>
 		</div>
@@ -16,14 +16,11 @@
   export default {
     methods: {
       Goto: function (url, e) {
-        debugger
-
-//        var a = e.target.closest('footer').children
-//
-//        a.forEach((val, id) => { val.classList.remove('mui-active') })
-//
-//        window.mui('#dzz-footer .dzz-tab-item').removeClass('mui-active')
-        // _self.addClass('mui-active')
+        let a = Array.prototype.slice.call(e.currentTarget.parentElement.children, 0)
+        a.forEach((val) => {
+          val.classList.remove('mui-active')
+        })
+        e.currentTarget.classList.add('mui-active')
         this.$router.go(url)
       }
     }
