@@ -1,20 +1,21 @@
 /**
  * Created by Administrator on 2016/4/19.
  */
+import Vue from 'vue'
 
 let _RESIZE_EVENT_STACK = []
 
 {
   let resize = function () {
     _RESIZE_EVENT_STACK.forEach(function (fn, id) {
-      console.log(fn.toString())
+      // console.log(fn.toString())
       fn(null)
     })
   }
   if (window.attachEvent) {
-    window.attachEvent('resize', resize)
+    window.attachEvent('resize', Vue.util.debounce(resize, 300))
   } else if (window.addEventListener) {
-    window.addEventListener('resize', resize, false)
+    window.addEventListener('resize', Vue.util.debounce(resize, 300), false)
   }
 }
 
