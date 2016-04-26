@@ -1,6 +1,6 @@
 <template>
-  <dzz-header v-title="'我的帐户'"></dzz-header>
-  <div class="hello">
+  <div>
+    <dzz-header title="我的帐户"></dzz-header>
     <h1>{{ msg }}</h1>
   </div>
 </template>
@@ -9,13 +9,16 @@
   import Header from '../common/Header.vue'
 
   export default {
-    data () {
+    data: function () {
       return {
         msg: 'Hello World!'
       }
     },
     components: {
       'dzz-header': Header
+    },
+    created: function () {
+      console.log('MyAccount.vue ready!')
     }
   }
 

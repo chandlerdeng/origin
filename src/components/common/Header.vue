@@ -1,8 +1,16 @@
 <template>
-  <header class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-    <span class="mui-title fs16" v-text="title"></span>
-    <a class="mui-icon  mui-icon-info mui-pull-right"></a>
+  <header class="weui_cells dzz-header">
+    <div class="weui_cell">
+      <div class="weui_cell_hd" onclick="window.history.back()">
+        <img src="../../assets/imgs/icon-back.png" alt=""
+             style="margin-right:0.05rem;display:block"></div>
+      <div class="weui_cell_bd weui_cell_primary">
+        <span v-text="title"> </span>
+      </div>
+      <div class="weui_cell_ft">
+        <i class="weui_icon_info_circle"></i>
+      </div>
+    </div>
   </header>
 </template>
 
@@ -10,13 +18,9 @@
 export default {
   data () {
     return {
-      msg: 'Hello World!'
     }
   },
   props: ['title']
 }
 </script>
 
-<style scoped>
-
-</style>

@@ -298,27 +298,39 @@ $window-min-w : 1080px;
     display: none;
 }
 
-.text-right{
+.text-right,
+.tright{
     text-align: right;
+}
+.tleft{
+  text-align: left;
+}
+.tcenter{
+  text-align: center;
 }
 
 .no-border-b:after {
     border-bottom: none;
 }
 
-// header
-$nav-height : 0.47rem;
-.mui-bar-nav{position: relative; height: $nav-height;background: white;-webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;border-bottom: 1px solid $blue;}
-.mui-bar .mui-btn-link, .mui-title{line-height: $nav-height;}
-.mui-title{ color: $blue;}
-.mui-bar .mui-btn-link{color: $gray;}
-.mui-navigate-right{ &:after{font-size: 0.24rem; color: $gray2;right: 0.15rem}}
+//header
+$dzzheaderhight: 0.2rem;
+.dzz-header{
+    margin-top: 0;
+    .weui_cell_hd{
+        img{width:$dzzheaderhight;}
+    }
+    .weui_cell{
+        font-size: $dzzheaderhight; line-height: $dzzheaderhight; padding: 0.15rem; text-align: center;
+    }
+    .weui_icon_download:before, .weui_icon_info_circle:before{font-size: $dzzheaderhight;}
+}
 
 // slider transition
 .slide-right-transition,
 .slide-left-transition{width: 100%;overflow: hidden;white-space: nowrap;position:relative}
 .slide-right-transition,.slide-right-transition footer.mui-bar,
-.slide-left-transition,.slide-left-transition footer.mui-bar{transition: all 0.5s ease;}
+.slide-left-transition,.slide-left-transition footer.mui-bar{transition: all 0.5s ease-in-out;}
 .slide-right-transition{float: right; right:0;}
 .slide-left-transition{float: left; left:0;}
 .slide-right-leave{right:0; width:0;}.slide-right-enter{right:100%; width: 0}
@@ -328,29 +340,13 @@ $nav-height : 0.47rem;
     footer.mui-bar{bottom: -0.38rem}
 }
 
-// footer
-footer.mui-bar {
-    background: #f7f7fa;
-    padding: 0.05rem 0;
-    -webkit-box-shadow: 0 0 1px #979797;
-    box-shadow: 0 0 1px #979797;
+.dzz-flex-container {
+  display: -webkit-flex;
+  display: flex;
 
-    .dzz-tab-item {
-      display: table-cell;
-      overflow: hidden;
-      width: 1%;
-      text-align: center;
-      vertical-align: middle;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      color: #929292;
-        height: 0.38rem;
-
-        .mui-icon {
-            background-size: contain;
-            width: 0.38rem;
-            height: 0.38rem;
-          vertical-align: middle;
-        }
-    }
+  .dzz-stretch-item {
+    -webkit-align-self: stretch;
+    align-self: stretch;
+    margin-bottom: 0!important;
+  }
 }

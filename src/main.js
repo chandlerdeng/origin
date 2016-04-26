@@ -27,6 +27,7 @@ var myApp = Vue.extend({
   created: function () {
     var _self = this
     console.log('myApp created')
+    require('assets/css/common.scss')
     Util.addResizeEvent(function () {
       console.log(document.body.clientWidth)
       _self.size = Util.getHtmlFontSize()
@@ -63,38 +64,27 @@ var myApp = Vue.extend({
 var myRouter = new VueRouter()
 
  /* 嵌套路由 */
-myRouter.map({'/': {
+var homeR = {
   name: 'home',
   component: App,
-  subRoutes: {
-    '/': {
-      component: function (resolve) {
-        resolve(require('components/Home.vue'))
-      }
+  subRoutes: App.myRoutes
+}
+myRouter.map({
+  '/': homeR,
+  '/home': homeR,
+  '/wash': {
+    name: 'wash',
+    component: function (resolve) {
+      resolve(require('components/services/WashList.vue'))
     },
-    '/myaccount': {
-      component: function (resolve) {
-        resolve(require('components/account/MyAccount.vue'))
-      }
-    },
-    '/myorders': {
-      component: function (resolve) {
-        resolve(require('components/account/MyOrderList.vue'))
-      }
-    }
+    subRoutes: require('components/services/WashList.vue').myRoutes
   }
-}})
-
-myRouter.map({'/wash': {
-  name: 'wash',
-  component: function (resolve) {
-    resolve(require('components/Page1.vue'))
-  }
-}})
+})
 
 myRouter.beforeEach(function (trans) {
   console.log('myRouter.beforeEach')
   var isSlideChg = false
+
   // 拦截地址, 如果是返回, 则改变动画方向
 
   if (trans.to.query && trans.to.query.slideleft && Boolean(trans.to.query.slideleft) === true) {
