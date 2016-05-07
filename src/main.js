@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App'
+import WishListVue from './components/services/WashList'
 import Util from './assets/js/Util'
 
 let dzzTrans = {
@@ -25,46 +26,37 @@ var myApp = Vue.extend({
     }
   },
   created: function () {
-    var _self = this
+    let _self = this
     console.log('myApp created')
     require('assets/css/common.scss')
+    _self.refreshStyle()
     Util.addResizeEvent(function () {
       console.log(document.body.clientWidth)
-      _self.size = Util.getHtmlFontSize()
-      _self.width = Util.getBodyWidth()
+      // _self.size = Util.getHtmlFontSize()
+      // _self.width = Util.getBodyWidth()
+      // document.head.style
+      _self.refreshStyle()
     })
   },
-  route: {
-    activate: function (transition) {
-      console.log('myApp route activated!')
-      transition.next()
-    },
-    deactivate: function (transition) {
-      console.log('myApp route deactivated!')
-      transition.next()
-    },
-    data: function (transition) {
-      console.log('myApp route data!')
-      transition.next()
-    },
-    canReuse: function (transition) {
-      console.log('myApp route canReuse!')
-      transition.next()
-    },
-    canDeactivate: function (transition) {
-      console.log('myApp route canDeactivate!')
-      transition.next()
-    },
-    canActivate: function (transition) {
-      console.log('myApp route canActivate!')
-      transition.next()
+  ready: function () {
+    console.log('myApp is ready')
+    window.$.hideLoading()
+  },
+  methods: {
+    refreshStyle: function () {
+      window.$(document.head).find('#default-style').html(
+          `
+            html{font-size: ${Util.getHtmlFontSize()}px;}
+            .dzz-body-width{width: ${Util.getBodyWidth()}px}
+          `
+      )
     }
   }
 })
-var myRouter = new VueRouter()
+let myRouter = new VueRouter()
 
  /* 嵌套路由 */
-var homeR = {
+let homeR = {
   name: 'home',
   component: App,
   subRoutes: App.myRoutes
@@ -74,10 +66,8 @@ myRouter.map({
   '/home': homeR,
   '/wash': {
     name: 'wash',
-    component: function (resolve) {
-      resolve(require('components/services/WashList.vue'))
-    },
-    subRoutes: require('components/services/WashList.vue').myRoutes
+    component: WishListVue,
+    subRoutes: WishListVue.myRoutes
   }
 })
 

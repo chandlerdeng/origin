@@ -25,6 +25,19 @@ module.exports = merge(baseWebpackConfig, {
       filename: 'index.html',
       template: 'index.html',
       inject: true
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'test.html',
+      template: 'test.html',
+      inject: true,
+      chunks: ['common'],
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+        // more options:
+        // https://github.com/kangax/html-minifier#options-quick-reference
+      }
     })
   ]
 })

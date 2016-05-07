@@ -2,6 +2,7 @@
 @import "core/css3";
 @import "core/mixin";
 
+body .weui_toast{ margin-left: -0.6em;    width: 1.2rem; min-height: 1.2rem;}
 /*
 全局防止越界
 ================================*/
@@ -96,6 +97,7 @@ input{
 .fl{float: left !important;}
 .fr{float: right !important;}
 .clear{clear: both !important;}
+.line-through{text-decoration: line-through;}
 /*
 边距
 ================================*/
@@ -179,6 +181,7 @@ input{
 .pt32{padding-top: 0.32rem !important;}
 .pt36{padding-top: 0.36rem !important;}
 
+.pb0{padding-bottom:  0 !important;}
 .pb5{padding-bottom:  0.05rem !important;}
 .pb8{padding-bottom:  0.08rem !important;}
 .pb10{padding-bottom: 0.1rem !important;}
@@ -322,6 +325,7 @@ $dzzheaderhight: 0.2rem;
     }
     .weui_cell{
         font-size: $dzzheaderhight; line-height: $dzzheaderhight; padding: 0.15rem; text-align: center;
+        border-bottom: 0.02rem solid $blue;
     }
     .weui_icon_download:before, .weui_icon_info_circle:before{font-size: $dzzheaderhight;}
 }
@@ -329,15 +333,15 @@ $dzzheaderhight: 0.2rem;
 // slider transition
 .slide-right-transition,
 .slide-left-transition{width: 100%;overflow: hidden;white-space: nowrap;position:relative}
-.slide-right-transition,.slide-right-transition footer.mui-bar,
-.slide-left-transition,.slide-left-transition footer.mui-bar{transition: all 0.5s ease-in-out;}
+.slide-right-transition,.slide-right-transition footer.foot-transition,
+.slide-left-transition,.slide-left-transition footer.foot-transition{transition: all 0.1s linear;}
 .slide-right-transition{float: right; right:0;}
 .slide-left-transition{float: left; left:0;}
 .slide-right-leave{right:0; width:0;}.slide-right-enter{right:100%; width: 0}
 .slide-left-leave{left:-100%;width: 0}.slide-left-enter{left:0;width:0}
 .slide-right-leave,.slide-left-leave,
 .slide-right-enter,.slide-left-enter{
-    footer.mui-bar{bottom: -0.38rem}
+    footer.foot-transition{bottom: -0.01rem}
 }
 
 .dzz-flex-container {
@@ -350,3 +354,29 @@ $dzzheaderhight: 0.2rem;
     margin-bottom: 0!important;
   }
 }
+
+@mixin dzz-customize-icon($name){
+    background: url(../imgs/element/icon-ele-#{$name}-default.png) center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+    &.active{
+        background: url(../imgs/element/icon-ele-#{$name}-active.png) center no-repeat;
+        -webkit-background-size: contain;
+        background-size: contain;
+    }
+}
+[class*=dzz-customize-icon-]{
+    width: 100%; height: 100%;
+}
+.dzz-customize-icon-ktguij{   @include dzz-customize-icon(ktguij)}
+.dzz-customize-icon-dmbx{@include dzz-customize-icon(dmbx)  }
+.dzz-customize-icon-smbx{@include dzz-customize-icon(smbx)}
+.dzz-customize-icon-ktgj{@include dzz-customize-icon(ktgj)}
+.dzz-customize-icon-yyj{ @include dzz-customize-icon(yyj)}
+.dzz-customize-icon-rsq{@include dzz-customize-icon(rsq)}
+.dzz-customize-icon-blxyj{@include dzz-customize-icon(blxyj)}
+.dzz-customize-icon-jyzykt{@include dzz-customize-icon(jyzykt)}
+.dzz-customize-icon-thj{@include dzz-customize-icon(thj)}
+.dzz-customize-icon-gtxyj{@include dzz-customize-icon(gtxyj)}
+.dzz-customize-icon-kttc{@include dzz-customize-icon(kttc)}
+.dzz-customize-icon-xyjtc{@include dzz-customize-icon(xyjtc)}

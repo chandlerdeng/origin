@@ -51,6 +51,11 @@
 /*
 H5全局
 ================================*/
+body .weui_toast {
+  margin-left: -0.6em;
+  width: 1.2rem;
+  min-height: 1.2rem; }
+
 /*
 全局防止越界
 ================================*/
@@ -181,6 +186,9 @@ input {
 
 .clear {
   clear: both !important; }
+
+.line-through {
+  text-decoration: line-through; }
 
 /*
 边距
@@ -401,6 +409,9 @@ input {
 .pt36 {
   padding-top: 0.36rem !important; }
 
+.pb0 {
+  padding-bottom: 0 !important; }
+
 .pb5 {
   padding-bottom: 0.05rem !important; }
 
@@ -604,7 +615,8 @@ UL横向显示
     font-size: 0.2rem;
     line-height: 0.2rem;
     padding: 0.15rem;
-    text-align: center; }
+    text-align: center;
+    border-bottom: 0.02rem solid #04B6F8; }
   .dzz-header .weui_icon_download:before, .dzz-header .weui_icon_info_circle:before {
     font-size: 0.2rem; }
 
@@ -615,9 +627,9 @@ UL横向显示
   white-space: nowrap;
   position: relative; }
 
-.slide-right-transition, .slide-right-transition footer.mui-bar,
-.slide-left-transition, .slide-left-transition footer.mui-bar {
-  transition: all 0.5s ease-in-out; }
+.slide-right-transition, .slide-right-transition footer.foot-transition,
+.slide-left-transition, .slide-left-transition footer.foot-transition {
+  transition: all 0.1s linear; }
 
 .slide-right-transition {
   float: right;
@@ -643,9 +655,9 @@ UL横向显示
   left: 0;
   width: 0; }
 
-.slide-right-leave footer.mui-bar, .slide-left-leave footer.mui-bar,
-.slide-right-enter footer.mui-bar, .slide-left-enter footer.mui-bar {
-  bottom: -0.38rem; }
+.slide-right-leave footer.foot-transition, .slide-left-leave footer.foot-transition,
+.slide-right-enter footer.foot-transition, .slide-left-enter footer.foot-transition {
+  bottom: -0.01rem; }
 
 .dzz-flex-container {
   display: -webkit-flex;
@@ -654,5 +666,117 @@ UL横向显示
     -webkit-align-self: stretch;
     align-self: stretch;
     margin-bottom: 0 !important; }
+
+[class*=dzz-customize-icon-] {
+  width: 100%;
+  height: 100%; }
+
+.dzz-customize-icon-ktguij {
+  background: url(../imgs/element/icon-ele-ktguij-default.png) center no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain; }
+  .dzz-customize-icon-ktguij.active {
+    background: url(../imgs/element/icon-ele-ktguij-active.png) center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain; }
+
+.dzz-customize-icon-dmbx {
+  background: url(../imgs/element/icon-ele-dmbx-default.png) center no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain; }
+  .dzz-customize-icon-dmbx.active {
+    background: url(../imgs/element/icon-ele-dmbx-active.png) center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain; }
+
+.dzz-customize-icon-smbx {
+  background: url(../imgs/element/icon-ele-smbx-default.png) center no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain; }
+  .dzz-customize-icon-smbx.active {
+    background: url(../imgs/element/icon-ele-smbx-active.png) center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain; }
+
+.dzz-customize-icon-ktgj {
+  background: url(../imgs/element/icon-ele-ktgj-default.png) center no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain; }
+  .dzz-customize-icon-ktgj.active {
+    background: url(../imgs/element/icon-ele-ktgj-active.png) center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain; }
+
+.dzz-customize-icon-yyj {
+  background: url(../imgs/element/icon-ele-yyj-default.png) center no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain; }
+  .dzz-customize-icon-yyj.active {
+    background: url(../imgs/element/icon-ele-yyj-active.png) center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain; }
+
+.dzz-customize-icon-rsq {
+  background: url(../imgs/element/icon-ele-rsq-default.png) center no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain; }
+  .dzz-customize-icon-rsq.active {
+    background: url(../imgs/element/icon-ele-rsq-active.png) center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain; }
+
+.dzz-customize-icon-blxyj {
+  background: url(../imgs/element/icon-ele-blxyj-default.png) center no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain; }
+  .dzz-customize-icon-blxyj.active {
+    background: url(../imgs/element/icon-ele-blxyj-active.png) center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain; }
+
+.dzz-customize-icon-jyzykt {
+  background: url(../imgs/element/icon-ele-jyzykt-default.png) center no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain; }
+  .dzz-customize-icon-jyzykt.active {
+    background: url(../imgs/element/icon-ele-jyzykt-active.png) center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain; }
+
+.dzz-customize-icon-thj {
+  background: url(../imgs/element/icon-ele-thj-default.png) center no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain; }
+  .dzz-customize-icon-thj.active {
+    background: url(../imgs/element/icon-ele-thj-active.png) center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain; }
+
+.dzz-customize-icon-gtxyj {
+  background: url(../imgs/element/icon-ele-gtxyj-default.png) center no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain; }
+  .dzz-customize-icon-gtxyj.active {
+    background: url(../imgs/element/icon-ele-gtxyj-active.png) center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain; }
+
+.dzz-customize-icon-kttc {
+  background: url(../imgs/element/icon-ele-kttc-default.png) center no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain; }
+  .dzz-customize-icon-kttc.active {
+    background: url(../imgs/element/icon-ele-kttc-active.png) center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain; }
+
+.dzz-customize-icon-xyjtc {
+  background: url(../imgs/element/icon-ele-xyjtc-default.png) center no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain; }
+  .dzz-customize-icon-xyjtc.active {
+    background: url(../imgs/element/icon-ele-xyjtc-active.png) center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain; }
 
 /*# sourceMappingURL=common.css.map */

@@ -1,5 +1,5 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
-	<footer id="dzz-footer" class="weui_tabbar" >
+	<footer id="dzz-footer" class="weui_tabbar foot-transition" >
 		<a v-on:click="Goto(0, $event)" v-bind:class="{'weui_bar_item_on': activeTab[0]}"
        class="weui_tabbar_item">
 			<div class="weui_tabbar_icon dzz-icon-home"> </div>
@@ -44,7 +44,7 @@
         var urls = ['/home/', '/home/myorders', '/home/myaccount']
         this.isActive = [false, false, false]
         this.isActive[id] = true
-        this.$router.go(urls[id])
+        this.$router.go({ path: urls[id], replace: true })
       }
     },
     created: function () {
